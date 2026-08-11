@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carim Store — Digital Products</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <div class="brand">
+                <strong>Carim Store</strong>
+            </div>
+            <nav class="main-nav">
+                <a href="#products" data-translate="navProducts">Products</a>
+                <a href="#cart" data-translate="navCart">Cart</a>
+                <a href="#favorites" data-translate="navFavorites">Favorites</a>
+                <a href="#payment-methods" data-translate="navPayments">Payments</a>
+            </nav>
+            <div class="top-actions">
+                <button id="role-switcher" class="ghost hidden" type="button" data-translate="switchRole">Switch Role</button>
+                <button id="theme-toggle" class="ghost" data-translate="toggleTheme">Dark Mode</button>
+                <div id="user-area" style="display:flex;align-items:center;gap:10px;">
+                    <img id="user-avatar" src="" alt="" style="width:36px;height:36px;border-radius:50%;display:none;object-fit:cover;border:1px solid var(--border);">
+                    <span id="user-welcome" class="user-welcome"></span>
+                    <button id="logout-btn" class="ghost hidden" data-translate="logout" aria-label="Logout">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow" data-translate="heroSubtitle">Elite Digital Shopping</p>
+                <h1 id="hero-title" data-translate="heroTitle">Carim Store — a fast, secure marketplace for digital products.</h1>
+                <p id="hero-description" data-translate="heroDescription">Browse modern digital goods, pay with local and global methods (demo), and enjoy instant access.</p>
+                <div class="hero-buttons">
+                    <button id="start-shopping" class="primary" data-translate="startShopping">Start Shopping</button>
+                    <button id="show-login" class="secondary" data-translate="showLogin">Account Login</button>
+                    <div class="social-login" style="display:inline-block;margin-left:12px;">
+                        <button id="google-login" class="social-btn" aria-label="Sign in with Google">
+                            <!-- Google G SVG -->
+                            <svg width="20" height="20" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M24 9.5c3.54 0 6.36 1.36 8.28 2.52l6.12-6.02C35.8 3.14 30.19 1 24 1 14.91 1 7.38 6 3.6 13.58l7.4 5.74C12.9 13.44 18.87 9.5 24 9.5z"/><path fill="#34A853" d="M46.5 24c0-1.6-.14-2.8-.45-4.02H24v8.04h12.9c-.56 3-2.9 6.02-6.5 7.66l6.28 4.86C43.94 36.46 46.5 30.6 46.5 24z"/><path fill="#FBBC05" d="M11 29.32a13.8 13.8 0 0 1 0-10.64L3.6 13.58A23.9 23.9 0 0 0 1.5 24c0 3.88.86 7.56 2.4 10.84L11 29.32z"/><path fill="#EA4335" d="M24 46.5c6.19 0 11.8-2.14 15.88-5.82l-7.64-5.92C30.36 36.76 27 38 24 38c-5.13 0-11.1-3.94-13-9.32l-7.4 5.74C7.38 42 14.91 46.5 24 46.5z"/></svg>
+                        </button>
+                        <button id="facebook-login" class="social-btn" aria-label="Sign in with Facebook">
+                           <!-- Facebook f SVG -->
+                           <svg width="12" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S1.86 6.48 1.86 12.07C1.86 17.03 5.81 21.14 10.65 21.94v-6.99H8.21v-2.88h2.44V9.41c0-2.41 1.43-3.74 3.62-3.74 1.05 0 2.14.19 2.14.19v2.36h-1.21c-1.2 0-1.57.74-1.57 1.5v1.8h2.67l-.43 2.88h-2.24v6.99C18.18 21.14 22 17.03 22 12.07z" fill="#1877F2"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-panel">
+                <div class="kpi-card">
+                    <span data-translate="kpiProducts">Products</span>
+                    <strong id="kpi-total-products">5+</strong>
+                </div>
+                <div class="kpi-card">
+                    <span data-translate="kpiPayments">Payment Options</span>
+                    <strong id="kpi-payments">8+</strong>
+                </div>
+                <div class="kpi-card">
+                    <span data-translate="kpiDelivery">Instant Delivery</span>
+                    <strong id="kpi-delivery">Now</strong>
+                </div>
+            </div>
+        </section>
+
+        <main class="main-layout">
+            <section id="products" class="section products-section">
+                <div class="section-header">
+                    <h2 data-translate="availableProducts">Available Products</h2>
+                    <div class="filter-row">
+                        <div class="search-field">
+                            <label for="search" class="sr-only" data-translate="searchProducts">Search products</label>
+                            <input type="search" id="search" placeholder="Search products..." data-translate-placeholder="searchProductsPlaceholder">
+                            <div id="search-suggestions" class="search-suggestions"></div>
+                        </div>
+                        <div class="select-field">
+                            <label for="category" data-translate="filterByCategory">Filter by category</label>
+                            <select id="category">
+                                <option value="all" data-translate="allCategory">All</option>
+                                <option value="ebooks" data-translate="categoryEbooks">E-books</option>
+                                <option value="software" data-translate="categorySoftware">Software</option>
+                                <option value="courses" data-translate="categoryCourses">Courses</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div id="product-list" class="product-grid"></div>
+                <div class="recommendation-panel card-panel">
+                    <div class="section-header">
+                        <h3 data-translate="smartRecommendations">Smart Recommendations</h3>
+                    </div>
+                    <div id="recommendation-panel" class="recommendation-grid"></div>
+                </div>
+                <div id="role-dashboard" class="role-dashboard">
+                    <div id="buyer-dashboard" class="role-panel hidden"></div>
+                    <div id="seller-dashboard" class="role-panel hidden"></div>
+                    <div id="publisher-dashboard" class="role-panel hidden"></div>
+                </div>
+            </section>
+
+            <aside class="sidebar">
+                <section id="cart" class="section card-panel">
+                    <div class="section-header">
+                        <h2 data-translate="shoppingCart">Shopping Cart</h2>
+                        <span id="cart-count">0</span>
+                    </div>
+                    <div id="cart-items" class="cart-items"></div>
+                    <div class="cart-footer">
+                        <span data-translate="total">Total</span>
+                        <strong id="cart-total">$0</strong>
+                    </div>
+                    <button id="checkout" class="primary" data-translate="checkout">Checkout</button>
+                </section>
+
+                <section id="favorites" class="section card-panel">
+                    <div class="section-header">
+                        <h2 data-translate="favorites">Favorites</h2>
+                    </div>
+                    <div id="favorite-items" class="favorite-items"></div>
+                </section>
+
+                <section id="payment-methods" class="section card-panel">
+                    <div class="section-header">
+                        <h2 data-translate="acceptedPayments">Accepted Payments</h2>
+                    </div>
+                    <div class="payment-grid">
+                        <span class="payment-logo">Visa</span>
+                        <span class="payment-logo">Mastercard</span>
+                        <span class="payment-logo">PayPal</span>
+                        <span class="payment-logo">Apple Pay</span>
+                        <span class="payment-logo">Mada</span>
+                        <span class="payment-logo">STC Pay</span>
+                        <span class="payment-logo">SADAD</span>
+                    </div>
+                    <p class="note" data-translate="paymentSupport">Local and global payment methods supported.</p>
+                </section>
+
+                <section id="assistant-panel" class="section card-panel">
+                    <div class="section-header">
+                        <h2 data-translate="aiAssistant">AI Shopping Assistant</h2>
+                    </div>
+                    <p class="assistant-note" data-translate="aiAssistantSubtitle">Ask the assistant for the best product, tailored recommendations, or smart shopping tips.</p>
+                    <div class="ai-assistant-controls">
+                        <input type="search" id="assistant-query" placeholder="Ask AI to find your perfect product" data-translate-placeholder="assistantPlaceholder">
+                        <button id="assistant-submit" class="primary" data-translate="askAssistant">Ask AI</button>
+                    </div>
+                    <div id="assistant-response" class="assistant-response"></div>
+                </section>
+            </aside>
+        </main>
+    </div>
+
+    <div id="product-modal" class="modal">
+        <div class="modal-dialog">
+            <button class="modal-close" aria-label="Close">&times;</button>
+            <img id="modal-product-image" src="" alt="" class="modal-image">
+            <div class="modal-content">
+                <h2 id="modal-product-name"></h2>
+                <p id="modal-product-description"></p>
+                <ul id="modal-product-features" class="modal-features"></ul>
+                <p class="modal-price" id="modal-product-price"></p>
+                <div class="modal-actions">
+                    <button id="modal-add-to-cart" class="primary" data-translate="addCart">Add to Cart</button>
+                    <button id="modal-add-to-favorites" class="secondary" data-translate="addFavorite">Add to Favorites</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="checkout-modal" class="modal">
+        <div class="modal-dialog card-panel">
+            <button class="modal-close" aria-label="Close">&times;</button>
+            <h2 data-translate="confirmPurchase">Confirm Purchase</h2>
+            <div class="checkout-summary">
+                <p data-translate="cartSummary">Review your order and choose a secure payment method.</p>
+                <div class="form-note demo-warning" style="margin-bottom:8px;color:#b33;">Demo mode: payments are simulated. Integrate a payment gateway to enable real transactions.</div>
+                <div class="checkout-details">
+                    <span data-translate="total">Total</span>
+                    <strong id="checkout-total">$0</strong>
+                </div>
+            </div>
+            <div id="payment-options" class="payment-options"></div>
+            <div class="checkout-actions">
+                <button id="confirm-payment" class="primary" data-translate="confirmPurchase">Confirm Purchase</button>
+                <button id="cancel-checkout" class="secondary" data-translate="cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="login-modal" class="modal">
+        <div class="modal-dialog login-panel card-panel">
+            <h2 data-translate="loginTitle">Secure Login</h2>
+            <p data-translate="loginSubtitle">Sign in with email, password, and country to personalize the store.</p>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email" data-translate="loginEmail">Email address</label>
+                    <input type="email" id="email" required placeholder="you@example.com">
+... (truncated for brevity)
