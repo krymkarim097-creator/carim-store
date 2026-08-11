@@ -1,0 +1,14 @@
+.env
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+build/
+dist/
+.eggs/
+*.egg-info/
+.DS_Store
+ngrok.out.txt
+ngrok.err.txt
